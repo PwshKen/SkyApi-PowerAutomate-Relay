@@ -1,0 +1,48 @@
+# Example Azure DevOps pipeline for deploying to Azure Functions.
+# Customers should adapt this to their own Azure subscription and resource names.
+#
+# Required pipeline variables:
+#   AZURE_FUNCTIONAPP_NAME - Name of your Azure Function App
+#   AZURE_SERVICE_CONNECTION - Azure DevOps service connection name
+
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "20.x"
+    displayName: Set up Node.js
+
+  - script: npm ci
+    displayName: Install dependencies
+
+  - script: npm run lint
+    displayName: Lint
+
+  - script: npm test
+    displayName: Run tests
+
+  - script: npm run build
+    displayName: Build
+
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: "."
+      includeRootFolder: false
+      archiveType: zip
+      archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+    displayName: Archive build output
+
+  - task: AzureFunctionApp@2
+    inputs:
+      azureSubscription: $(AZURE_SERVICE_CONNECTION)
+      appType: functionApp
+      appName: $(AZURE_FUNCTIONAPP_NAME)
+      package: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+    displayName: Deploy to Azure Functions
