@@ -70,7 +70,7 @@ resource functionApp 'Microsoft.Web/sites@2023-12-01' = {
         }
         {
           name: 'WEBSITE_NODE_DEFAULT_VERSION'
-          value: '~20'
+          value: '~22'
         }
         {
           name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
@@ -85,7 +85,7 @@ resource functionApp 'Microsoft.Web/sites@2023-12-01' = {
           value: powerAutomateUrl
         }
       ]
-      nodeVersion: '~20'
+      nodeVersion: '~22'
     }
     httpsOnly: true
   }

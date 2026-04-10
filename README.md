@@ -40,7 +40,7 @@ az deployment group create \
 ```
 
 Or create the resources manually:
-- Azure Function App (Node.js 20, Consumption plan)
+- Azure Function App (Node.js 22, Consumption plan)
 - Set app settings: `WEBHOOK_KEY` and `POWER_AUTOMATE_URL`
 
 ### 2. Deploy the function
@@ -97,7 +97,7 @@ Use the Blackbaud Webhook API's [test payload endpoint](https://developer.sky.bl
 
 ## Local development
 
-This project includes a devcontainer with Node.js 20 and Azure Functions Core Tools pre-installed.
+This project includes a devcontainer with Node.js 22 and Azure Functions Core Tools pre-installed.
 
 1. Open in VS Code with the Dev Containers extension
 2. Copy `local.settings.example.json` to `local.settings.json` and fill in your values
