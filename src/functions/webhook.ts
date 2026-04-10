@@ -35,7 +35,7 @@ async function webhookHandler(
   // POST — Event delivery
   const webhookKey = request.query.get("webhookKey");
 
-  if (!validateWebhookKey(webhookKey, WEBHOOK_KEY)) {
+  if (!validateWebhookKey(webhookKey ?? undefined, WEBHOOK_KEY)) {
     // Random delay to prevent timing attacks, then return 200 to avoid
     // leaking info and to prevent Blackbaud from retrying
     const delay = 200 + Math.floor(Math.random() * 300);
