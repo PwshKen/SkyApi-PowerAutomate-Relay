@@ -1,0 +1,26 @@
+{
+  "name": "blackbaud-webhook-power-automate",
+  "version": "1.0.0",
+  "description": "Azure Functions relay for Blackbaud Education Management webhooks to Power Automate",
+  "main": "dist/src/functions/*.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "clean": "rm -rf dist",
+    "prestart": "npm run clean && npm run build",
+    "start": "func start",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint src/ tests/"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "eslint": "^9.0.0",
+    "typescript": "^5.5.0",
+    "typescript-eslint": "^8.0.0",
+    "vitest": "^3.0.0"
+  }
+}

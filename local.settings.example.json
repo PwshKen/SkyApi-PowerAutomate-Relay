@@ -1,0 +1,9 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "WEBHOOK_KEY": "replace-with-your-secret",
+    "POWER_AUTOMATE_URL": "replace-with-your-flow-url"
+  }
+}
