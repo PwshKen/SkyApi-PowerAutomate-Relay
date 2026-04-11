@@ -164,7 +164,7 @@ Blackbaud will send a CloudEvents Abuse Protection handshake (OPTIONS request). 
 
 ## Updating App Settings After Deployment
 
-To update `WEBHOOK_KEY` or `POWER_AUTOMATE_URL` after initial deployment:
+To update `WEBHOOK_KEY` or `POWER_AUTOMATE_URL` after initial deployment, pass one or both settings. Omitted settings are left unchanged.
 
 ```bash
 az functionapp config appsettings set \
